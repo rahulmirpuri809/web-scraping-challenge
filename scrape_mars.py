@@ -14,7 +14,7 @@ def init_browser():
     browser = browser('chrome', **executable_path, headless=False)
 
 def web_scrape():
-
+    browser - init_browser()
     # Visit the NASA Mars News Site
     news_url = "https://mars.nasa.gov/news/"
     browser.visit(news_url)
