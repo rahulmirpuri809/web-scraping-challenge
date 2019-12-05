@@ -11,10 +11,12 @@ import pandas as pd
 def init_browser():
     # Set Executable Path with Chromedriver
     executable_path = {'executable_path': 'chromedriver.exe'}
-    browser = browser('chrome', **executable_path, headless=False)
+    return browser('chrome', **executable_path, headless=False)
 
 def web_scrape():
-    browser - init_browser()
+
+    browser = init_browser()
+
     # Visit the NASA Mars News Site
     news_url = "https://mars.nasa.gov/news/"
     browser.visit(news_url)
