@@ -25,7 +25,7 @@ def home():
 def scrape():
 
     # Run the scrape function
-    total_data = scrape_mars.scrape_info()
+    total_data = scrape_mars.web_scrape()
 
     # Update the Mongo database using update and upsert=True
     mongo.db.collection.update({}, total_data, upsert=True)

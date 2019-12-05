@@ -70,13 +70,13 @@ def web_scrape():
 
     # Get Mars Weather
     mars_weather = tweet_soup.find('p', class_='TweetTextSize').text.strip().replace("\n"," ").split("pic.twitter")
-    mars_weather[0]
+    mars_weather = mars_weather[0]
 
 
     dictionary1= {"news_title": news_title,
                 "news_paragraph": news_paragraph,
                 "featured_image_url": feat_img_full_url,
-                "mars_weather": mars_weather[0]}
+                "mars_weather": mars_weather}
 
 
 
