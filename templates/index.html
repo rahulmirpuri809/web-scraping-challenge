@@ -25,10 +25,16 @@
         <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data!</a></p>
     </div>
     <br><hr><br>
-    <div>
-        <h2 style="text-align: center;"><b>Latest Mars News</b></h2>
-        <h4><b>{{ data.news_title }}</b></h4>
-        <h5>{{ data.news_paragraph }}</h5>
+    <div class="row">
+        <div class="col-12">
+            <h2 style="text-align: center; margin-bottom: 40px;"><b>Latest Mars News</b></h2>
+            <h4><b>{{ data.news_title }}</b></h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h5>{{ data.news_paragraph }}</h5>
+        </div>
     </div>
     <br><hr><br>
     <div class="container-fluid">
@@ -98,22 +104,15 @@
     <div>
         <h2 style="text-align: center;"><b>Mars Hemispheres</b></h2>
         <hr>
-        <figure class="figure">
-            <img width="600" height="600" src="{{ data.image_urls[0] }}" class="figure-img img-fluid rounded" alt="{{ data.image_titles[0] }}">
-            <figcaption style="text-align: center;" class="figure-caption figure_caption">{{ data.image_titles[0] }}</figcaption>
-        </figure>
-        <figure class="figure">
-            <img width="600" height="600" src="{{ data.image_urls[1] }}" class="figure-img img-fluid rounded" alt="{{ data.image_titles[1] }}">
-            <figcaption style="text-align: center;" class="figure-caption figure_caption">{{ data.image_titles[1] }}</figcaption>
-        </figure>
-        <figure class="figure">
-            <img width="600" height="600" src="{{ data.image_urls[2] }}" class="figure-img img-fluid rounded" alt="{{ data.image_titles[2] }}">
-            <figcaption style="text-align: center;" class="figure-caption figure_caption">{{ data.image_titles[2] }}</figcaption>
-        </figure>
-        <figure class="figure">
-            <img width="600" height="600" src="{{ data.image_urls[3] }}" class="figure-img img-fluid rounded" alt="{{ data.image_titles[3] }}">
-            <figcaption style="text-align: center;" class="figure-caption figure_caption">{{ data.image_titles[3] }}</figcaption>
-        </figure>
+        {% for hemi in data.image_urls %}
+            <figure class="figure">
+                <img width="600" height="600" src="{{ hemi | default('images/error.png', true)}}" class="figure-img img-fluid rounded" alt="{{ hemi.image_titles }}">
+                <figcaption style="text-align: center;" class="figure-caption figure_caption">{{ hemi.image_titles }}</figcaption>
+            </figure>
+        {% endfor %}
+        
     </div>
+
+    
 </body>
 </html>

@@ -67,7 +67,7 @@ def web_scrape():
 
     #HTML Parser 
     html3 = browser.html
-    tweet_soup3 = BeautifulSoup(html3, 'html.parser')
+    tweet_soup = BeautifulSoup(html3, 'html.parser')
 
 
     # Get Mars Weather
@@ -155,7 +155,7 @@ def web_scrape():
 
 
 
-    total_data = {**dictionary1,** dictionary2, **dictionary3}
+    total_data = {**dictionary1,**dictionary2, **dictionary3}
     
     browser.quit()
 
